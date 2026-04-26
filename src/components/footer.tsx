@@ -63,7 +63,11 @@ export function Footer() {
           style={{ borderColor: '#1E2D45', color: '#5A7A9A' }}>
           <p>© {new Date().getFullYear()} {BRAND.name}. Todos os direitos reservados.</p>
           <div className="flex items-center gap-4">
-            <Link href="/demo" className="hover:text-white transition-colors">Agendar Demo</Link>
+            <Link href="/demo" className="hover:text-white transition-colors">Demo</Link>
+            <span>·</span>
+            <Link href="/termos" className="hover:text-white transition-colors">Termos</Link>
+            <span>·</span>
+            <Link href="/privacidade" className="hover:text-white transition-colors">Privacidade</Link>
             <span>·</span>
             <a href={`mailto:${BRAND.email}`} className="hover:text-white transition-colors">Suporte</a>
           </div>
