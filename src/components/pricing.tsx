@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Check, X, Sparkles } from 'lucide-react'
-import { whatsappLink, PLANOS, ANNUAL_DISCOUNT, annualPricing } from '@/lib/contact'
+import { Check, X, Sparkles, ArrowRight, MessageCircle } from 'lucide-react'
+import { whatsappLink, PLANOS, ANNUAL_DISCOUNT, annualPricing, BRAND } from '@/lib/contact'
 
 const BRL = (v: number) =>
   new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0, maximumFractionDigits: 0 })
@@ -133,16 +133,26 @@ export function Pricing() {
                   ))}
                 </ul>
 
+                {/* CTA principal: signup self-service (cliente cria conta sozinho) */}
                 <a
-                  href={whatsappLink(`Oi! Tenho interesse no plano ${plan.name} (${annual ? 'anual' : 'mensal'}). Pode me passar mais detalhes?`)}
-                  target="_blank" rel="noopener noreferrer"
+                  href={`${BRAND.signupUrl}?plan=${key}${annual ? '&billing=annual' : ''}`}
                   className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold transition-opacity hover:opacity-90"
                   style={highlighted
                     ? { background: 'linear-gradient(135deg, #00E5FF, #00FF94)', color: '#080C14' }
-                    : { background: '#1E2D45', color: '#E8F0FE', border: '1px solid #2A3D5C' }
+                    : { background: 'linear-gradient(135deg, #00E5FF, #00FF94)', color: '#080C14' }
                   }
                 >
-                  Quero o {plan.name}
+                  Começar grátis (7 dias) <ArrowRight className="h-4 w-4" />
+                </a>
+
+                {/* CTA secundário: WhatsApp pra quem prefere atendimento humano */}
+                <a
+                  href={whatsappLink(`Oi! Tenho interesse no plano ${plan.name} (${annual ? 'anual' : 'mensal'}). Pode me passar mais detalhes?`)}
+                  target="_blank" rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-xl py-2 text-xs font-semibold transition-colors hover:bg-white/5"
+                  style={{ color: '#8AA8C8', border: '1px solid #1E2D45' }}
+                >
+                  <MessageCircle className="h-3.5 w-3.5" /> Falar com vendas
                 </a>
               </article>
             )
