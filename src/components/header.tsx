@@ -42,8 +42,9 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          {/* Link pro sistema — pra clientes que já têm conta */}
-          <a href={BRAND.appUrl} target="_blank" rel="noopener noreferrer"
+          {/* Link pro sistema — pra clientes que já têm conta. Mesma aba: cliente
+              não vai voltar pra landing. */}
+          <a href={BRAND.appUrl}
             className="hidden md:inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:text-white"
             style={{ color: '#8AA8C8' }}>
             Acessar minha conta
@@ -94,7 +95,7 @@ export function Header() {
                 style={{ background: '#00E5FF', color: '#080C14' }}>
                 Falar no WhatsApp
               </a>
-              <a href={BRAND.appUrl} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}
+              <a href={BRAND.appUrl} onClick={() => setOpen(false)}
                 className="mt-2 flex items-center justify-center gap-2 rounded-lg border px-4 py-3 text-sm font-medium"
                 style={{ borderColor: '#1E2D45', color: '#8AA8C8' }}>
                 Acessar minha conta
