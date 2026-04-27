@@ -9,8 +9,8 @@ export const BRAND = {
   whatsapp:    '5579999998876',          // só dígitos, formato internacional (55 + DDD + número)
   email:       'contato@gestaointeligente.com.br',
   city:        'Aracaju · SE',
-  appUrl:      'https://smarterp-theta.vercel.app',          // sistema (login)
-  signupUrl:   'https://smarterp-theta.vercel.app/signup',   // signup público
+  appUrl:      'https://app.gestaosmarterp.online',          // sistema (login)
+  signupUrl:   'https://app.gestaosmarterp.online/signup',   // signup público
 }
 
 /** Gera link wa.me com mensagem pré-preenchida. */

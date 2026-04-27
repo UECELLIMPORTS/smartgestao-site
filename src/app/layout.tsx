@@ -5,7 +5,7 @@ import { BRAND } from '@/lib/contact'
 export const metadata: Metadata = {
   title:       `${BRAND.name} — ${BRAND.tagline}`,
   description: 'Plataforma 4-em-1 de gestão pra empresários que querem entender, controlar e escalar o negócio com dados reais.',
-  metadataBase: new URL('https://smartgestao-site.vercel.app'),
+  metadataBase: new URL('https://gestaosmarterp.online'),
   openGraph: {
     title:       `${BRAND.name} — ${BRAND.tagline}`,
     description: 'Sistemas que fazem seu negócio crescer.',
