@@ -3,7 +3,7 @@ import { TrendingDown, Target, AlertTriangle, BarChart3 } from 'lucide-react'
 const STORIES = [
   {
     icon: TrendingDown,
-    color: '#FF4D6D',
+    accent: 'var(--danger)',
     label: 'A pergunta que ninguém respondia',
     question: '"A loja física se paga sozinha ou só vive do online?"',
     answer:
@@ -12,7 +12,7 @@ const STORIES = [
   },
   {
     icon: Target,
-    color: '#00E5FF',
+    accent: 'var(--accent)',
     label: 'Atribuição de verdade',
     question: '"Esse cliente veio do Instagram pago ou da indicação?"',
     answer:
@@ -21,7 +21,7 @@ const STORIES = [
   },
   {
     icon: AlertTriangle,
-    color: '#FFAA00',
+    accent: 'var(--warning)',
     label: 'Detecção automática',
     question: '"Quais clientes estão sumindo sem eu perceber?"',
     answer:
@@ -30,7 +30,7 @@ const STORIES = [
   },
   {
     icon: BarChart3,
-    color: '#00FF94',
+    accent: 'var(--success)',
     label: 'Dados que se conectam',
     question: '"Por que meu lucro tá inflado nos relatórios?"',
     answer:
@@ -41,21 +41,22 @@ const STORIES = [
 
 export function Diferenciais() {
   return (
-    <section id="diferenciais" className="py-20 lg:py-28 border-y" style={{ borderColor: '#1E2D45', background: '#0A0F1A' }}>
+    <section id="diferenciais" className="py-20 lg:py-28">
       <div className="container-x">
-        {/* Header */}
+        {/* Section header */}
         <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[11px] font-bold uppercase tracking-widest mb-4"
-            style={{ borderColor: '#1E2D45', color: '#00FF94' }}>
+          <div className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-widest mb-4"
+            style={{ borderColor: 'var(--border)', color: 'var(--success)' }}>
             Diferenciais
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-            Não vendemos &quot;ERP&quot;.<br />
-            <span style={{ color: '#8AA8C8' }}>Vendemos respostas.</span>
+          <h2 className="display-2" style={{ color: 'var(--text)' }}>
+            Não vendemos &quot;ERP&quot;.{' '}
+            <span style={{ color: 'var(--muted)' }}>Vendemos respostas.</span>
           </h2>
-          <p className="mt-4 text-base" style={{ color: '#8AA8C8' }}>
+          <p className="mt-4 text-base leading-relaxed" style={{ color: 'var(--text-2)' }}>
             Empresário não quer software — quer saber o que aumenta o lucro.
-            Estas são as 4 perguntas que nossos clientes mais fazem, e como a Gestão Inteligente responde:
+            Estas são as 4 perguntas que nossos clientes mais fazem,
+            e como a Gestão Inteligente responde:
           </p>
         </div>
 
@@ -64,31 +65,31 @@ export function Diferenciais() {
           {STORIES.map(s => {
             const Icon = s.icon
             return (
-              <article
-                key={s.question}
-                className="rounded-2xl border p-7 space-y-4"
-                style={{ background: '#0D1320', borderColor: '#1E2D45' }}
-              >
+              <article key={s.question} className="card space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl shrink-0 border"
-                    style={{ background: `${s.color}15`, borderColor: `${s.color}40` }}>
-                    <Icon className="h-5 w-5" style={{ color: s.color }} />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl shrink-0"
+                    style={{
+                      background: `color-mix(in srgb, ${s.accent} 10%, white)`,
+                      border: `1px solid color-mix(in srgb, ${s.accent} 25%, transparent)`,
+                    }}>
+                    <Icon className="h-5 w-5" style={{ color: s.accent }} />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: s.color }}>
+                  <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: s.accent }}>
                     {s.label}
                   </span>
                 </div>
 
-                <p className="text-xl font-bold leading-snug" style={{ color: '#E8F0FE' }}>
+                <p className="text-xl font-bold leading-snug" style={{ color: 'var(--text)' }}>
                   {s.question}
                 </p>
 
-                <p className="text-sm leading-relaxed" style={{ color: '#8AA8C8' }}>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--text-2)' }}>
                   {s.answer}
                 </p>
 
-                <div className="pt-3 border-t flex items-center gap-2 text-xs font-semibold" style={{ borderColor: '#1E2D45', color: s.color }}>
-                  <span className="h-1.5 w-1.5 rounded-full" style={{ background: s.color }} />
+                <div className="pt-3 border-t flex items-center gap-2 text-xs font-semibold"
+                  style={{ borderColor: 'var(--border)', color: s.accent }}>
+                  <span className="h-1.5 w-1.5 rounded-full" style={{ background: s.accent }} />
                   {s.metric}
                 </div>
               </article>

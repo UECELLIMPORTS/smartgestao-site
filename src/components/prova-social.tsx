@@ -6,47 +6,47 @@ const STATS = [
     value:   '12.000+',
     label:   'Clientes ativos',
     sub:     'na loja-laboratório',
-    color:   '#00E5FF',
+    accent:  'var(--primary)',
   },
   {
     icon:    Building2,
     value:   '1 loja real',
     label:   'Validando o sistema',
     sub:     'todo dia, no balcão',
-    color:   '#00FF94',
+    accent:  'var(--success)',
   },
   {
     icon:    Activity,
     value:   '24/7',
     label:   'Em produção',
     sub:     'sem downtime planejado',
-    color:   '#FFB800',
+    accent:  'var(--warning)',
   },
   {
     icon:    Clock,
     value:   'Anos',
     label:   'De operação real',
     sub:     'antes de virar produto',
-    color:   '#9B6DFF',
+    accent:  'var(--accent)',
   },
 ]
 
 export function ProvaSocial() {
   return (
-    <section className="py-20 lg:py-28 border-t" style={{ borderColor: '#1E2D45' }}>
+    <section className="py-20 lg:py-28">
       <div className="container-x">
-        {/* Header */}
+        {/* Section header */}
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[11px] font-bold uppercase tracking-widest mb-4"
-            style={{ borderColor: '#1E2D45', color: '#00E5FF' }}>
+          <div className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-widest mb-4"
+            style={{ borderColor: 'var(--border)', color: 'var(--primary)' }}>
             Não é vaporware
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-            Construído numa loja de verdade.<br />
-            <span style={{ color: '#8AA8C8' }}>Com 12 mil clientes reais.</span>
+          <h2 className="display-2" style={{ color: 'var(--text)' }}>
+            Construído numa loja de verdade.{' '}
+            <span style={{ color: 'var(--muted)' }}>Com 12 mil clientes reais.</span>
           </h2>
-          <p className="mt-5 max-w-2xl mx-auto text-base" style={{ color: '#8AA8C8' }}>
-            A Gestão Inteligente nasceu na rotina da <strong style={{ color: '#E8F0FE' }}>UÉ Cell Imports</strong> —
+          <p className="mt-5 max-w-2xl mx-auto text-base leading-relaxed" style={{ color: 'var(--text-2)' }}>
+            A Gestão Inteligente nasceu na rotina da <strong style={{ color: 'var(--text)' }}>UÉ Cell Imports</strong> —
             uma loja física e online de Aracaju que processa milhares de vendas e ordens de serviço todo mês.
             Cada feature aqui resolve uma dor que vivemos no balcão antes de virar código.
           </p>
@@ -57,20 +57,23 @@ export function ProvaSocial() {
           {STATS.map(s => {
             const Icon = s.icon
             return (
-              <div key={s.label} className="rounded-2xl border p-6 text-center"
-                style={{ background: '#0D1320', borderColor: '#1E2D45' }}>
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl border"
-                  style={{ background: `${s.color}15`, borderColor: `${s.color}40` }}>
-                  <Icon className="h-6 w-6" style={{ color: s.color }} />
+              <div key={s.label} className="rounded-2xl border bg-white p-6 text-center"
+                style={{ borderColor: 'var(--border)' }}>
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl"
+                  style={{
+                    background: `color-mix(in srgb, ${s.accent} 10%, white)`,
+                    border: `1px solid color-mix(in srgb, ${s.accent} 25%, transparent)`,
+                  }}>
+                  <Icon className="h-6 w-6" style={{ color: s.accent }} />
                 </div>
-                <p className="text-3xl sm:text-4xl font-bold tabular-nums leading-tight"
-                  style={{ color: s.color }}>
+                <p className="text-3xl sm:text-4xl font-bold tabular-nums leading-tight tracking-tight"
+                  style={{ color: s.accent }}>
                   {s.value}
                 </p>
-                <p className="mt-2 text-sm font-semibold" style={{ color: '#E8F0FE' }}>
+                <p className="mt-2 text-sm font-semibold" style={{ color: 'var(--text)' }}>
                   {s.label}
                 </p>
-                <p className="text-[11px] mt-1" style={{ color: '#5A7A9A' }}>
+                <p className="text-[11px] mt-1" style={{ color: 'var(--muted)' }}>
                   {s.sub}
                 </p>
               </div>
@@ -79,26 +82,26 @@ export function ProvaSocial() {
         </div>
 
         {/* Citação institucional */}
-        <div className="mt-12 max-w-3xl mx-auto rounded-2xl border p-8 lg:p-10 relative"
-          style={{ background: 'linear-gradient(135deg, #0D1320, #0A0F1A)', borderColor: '#00E5FF40' }}>
-          <div className="pointer-events-none absolute top-0 left-8 -translate-y-1/2 text-7xl leading-none font-bold opacity-20"
-            style={{ color: '#00E5FF' }}>
+        <div className="mt-12 max-w-3xl mx-auto rounded-2xl border bg-white p-8 lg:p-10 relative"
+          style={{ borderColor: 'var(--border)' }}>
+          <div className="pointer-events-none absolute top-0 left-8 -translate-y-1/2 text-7xl leading-none font-bold opacity-15"
+            style={{ color: 'var(--primary)' }}>
             &ldquo;
           </div>
           <blockquote className="relative">
-            <p className="text-lg lg:text-xl leading-relaxed" style={{ color: '#E8F0FE' }}>
+            <p className="text-lg lg:text-xl leading-relaxed" style={{ color: 'var(--text)' }}>
               Construímos cada feature resolvendo uma dor real do balcão.
               Se funciona pra mim atendendo 12 mil clientes na minha loja, funciona pra você.
               Não é teoria — é o que rodamos todo dia.
             </p>
             <footer className="mt-6 flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-full text-base font-bold shrink-0"
-                style={{ background: 'linear-gradient(135deg, #00E5FF, #00FF94)', color: '#080C14' }}>
+                style={{ background: 'linear-gradient(135deg, var(--primary), var(--accent))', color: 'white' }}>
                 FF
               </div>
               <div>
-                <p className="text-sm font-bold" style={{ color: '#E8F0FE' }}>Felipe Ferreira</p>
-                <p className="text-xs" style={{ color: '#8AA8C8' }}>
+                <p className="text-sm font-bold" style={{ color: 'var(--text)' }}>Felipe Ferreira</p>
+                <p className="text-xs" style={{ color: 'var(--muted)' }}>
                   Fundador · Gestão Inteligente · UÉ Cell Imports
                 </p>
               </div>
@@ -106,12 +109,12 @@ export function ProvaSocial() {
           </blockquote>
         </div>
 
-        {/* Caixa "vazia" honesta — espaço pra futuros depoimentos reais */}
+        {/* Placeholder pra depoimentos reais */}
         <div className="mt-10 max-w-3xl mx-auto rounded-xl border border-dashed p-5 text-center"
-          style={{ borderColor: '#1E2D45' }}>
-          <p className="text-xs" style={{ color: '#5A7A9A' }}>
+          style={{ borderColor: 'var(--border-2)' }}>
+          <p className="text-xs" style={{ color: 'var(--muted)' }}>
             Em breve: depoimentos dos primeiros clientes do sistema.
-            Quer ser o primeiro a aparecer aqui? <a href="#planos" className="underline hover:text-white transition-colors">Conheça os planos →</a>
+            Quer ser o primeiro a aparecer aqui? <a href="#planos" className="underline transition-colors hover:text-slate-900">Conheça os planos →</a>
           </p>
         </div>
       </div>

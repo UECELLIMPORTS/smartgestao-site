@@ -1,46 +1,51 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { whatsappLink } from '@/lib/contact'
+import { whatsappLink, BRAND } from '@/lib/contact'
 
 export function CtaFinal() {
   return (
     <section className="py-20 lg:py-28">
       <div className="container-x">
-        <div className="relative overflow-hidden rounded-3xl border p-10 lg:p-16 text-center"
+        <div className="relative overflow-hidden rounded-3xl p-10 lg:p-16 text-center"
           style={{
-            background: 'linear-gradient(135deg, #0D1320, #0A0F1A)',
-            borderColor: '#00E5FF40',
+            background: 'linear-gradient(135deg, var(--primary) 0%, #6366F1 100%)',
+            color: 'white',
           }}>
-          <div className="pointer-events-none absolute inset-0 opacity-30"
-            style={{ background: 'radial-gradient(circle at 50% 0%, #00E5FF20, transparent 70%)' }} />
+          {/* Decorative pattern */}
+          <div className="pointer-events-none absolute inset-0 opacity-20"
+            style={{
+              backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
+              backgroundSize: '24px 24px',
+            }} />
 
           <div className="relative">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight max-w-2xl mx-auto">
-              Pronto pra parar de adivinhar<br />
-              <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(135deg, #00E5FF, #00FF94)' }}>
-                e começar a crescer com dados?
+            <h2 className="display-2 max-w-2xl mx-auto" style={{ color: 'white' }}>
+              Pare de adivinhar.{' '}
+              <span style={{ color: 'rgba(255,255,255,.75)' }}>
+                Comece a crescer com dados.
               </span>
             </h2>
-            <p className="mt-5 max-w-xl mx-auto text-base" style={{ color: '#8AA8C8' }}>
-              Conversa de 15 minutos com um especialista pra entender se a Gestão Inteligente é pro seu negócio.
-              Sem enrolação, sem compromisso.
+            <p className="mt-5 max-w-xl mx-auto text-base leading-relaxed"
+              style={{ color: 'rgba(255,255,255,.85)' }}>
+              7 dias grátis pra testar. Sem cartão de crédito. Setup em até 24h.
+              Suporte em português direto pelo WhatsApp.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
               <a
+                href={`${BRAND.appUrl}/signup`}
+                className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-bold transition-opacity hover:opacity-95"
+                style={{ background: 'white', color: 'var(--primary)' }}
+              >
+                Começar grátis 7 dias <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
                 href={whatsappLink('Oi! Quero saber se a Gestão Inteligente serve pro meu negócio.')}
                 target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-bold transition-opacity hover:opacity-90"
-                style={{ background: 'linear-gradient(135deg, #00E5FF, #00FF94)', color: '#080C14' }}
+                className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-bold border transition-colors hover:bg-white/10"
+                style={{ borderColor: 'rgba(255,255,255,.4)', color: 'white' }}
               >
-                Falar no WhatsApp agora <ArrowRight className="h-4 w-4" />
+                Falar com vendas
               </a>
-              <Link
-                href="/demo"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border px-7 py-3.5 text-sm font-bold transition-colors hover:bg-white/5"
-                style={{ borderColor: '#1E2D45', color: '#E8F0FE' }}
-              >
-                Agendar demonstração
-              </Link>
             </div>
           </div>
         </div>

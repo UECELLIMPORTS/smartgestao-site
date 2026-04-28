@@ -1,29 +1,36 @@
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import { BRAND } from '@/lib/contact'
 
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
+
 export const metadata: Metadata = {
   title:       `${BRAND.name} — ${BRAND.tagline}`,
-  description: 'Plataforma 4-em-1 de gestão pra empresários que querem entender, controlar e escalar o negócio com dados reais.',
+  description: 'ERP completo pra lojas que querem vender mais e gastar menos tempo. Frente de caixa, estoque, financeiro, CRM e Meta Ads em um só painel.',
   metadataBase: new URL('https://gestaosmarterp.online'),
   openGraph: {
     title:       `${BRAND.name} — ${BRAND.tagline}`,
-    description: 'Sistemas que fazem seu negócio crescer.',
+    description: 'Sistema de gestão pra lojas que querem crescer com dados.',
     type:        'website',
     locale:      'pt_BR',
   },
 }
 
 export const viewport = {
-  themeColor:   '#080C14',
+  themeColor:   '#FFFFFF',
   width:        'device-width',
   initialScale: 1,
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR">
-      <body>{children}</body>
+    <html lang="pt-BR" className={inter.variable}>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }
