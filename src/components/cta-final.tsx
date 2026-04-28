@@ -8,7 +8,7 @@ export function CtaFinal() {
       <div className="container-x">
         <div className="relative overflow-hidden rounded-3xl p-10 lg:p-16 text-center"
           style={{
-            background: 'linear-gradient(135deg, var(--primary) 0%, #6366F1 100%)',
+            background: 'linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%)',
             color: 'white',
           }}>
           {/* Decorative pattern */}
