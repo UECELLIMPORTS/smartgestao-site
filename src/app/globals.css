@@ -131,7 +131,7 @@ html, body {
   box-shadow: 0 4px 12px rgba(15, 23, 42, .04);
 }
 
-/* Glow sutil pra elementos de destaque (gradient mesh decorativo no hero) */
+/* Mesh gradient — usado no hero (sutil, indigo+cyan) */
 .mesh-bg {
   position: relative;
 }
@@ -140,13 +140,61 @@ html, body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(at 20% 20%, rgba(79, 70, 229, .06) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, rgba(6, 182, 212, .05) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(79, 70, 229, .04) 0px, transparent 50%);
+    radial-gradient(at 20% 20%, rgba(79, 70, 229, .12) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(6, 182, 212, .10) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(79, 70, 229, .08) 0px, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
 .mesh-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Gradient indigo suave pra seções (alterna com surface/branco) */
+.bg-indigo-soft {
+  background: linear-gradient(180deg, var(--primary-light) 0%, white 100%);
+}
+
+/* Gradient cyan suave pra outras seções */
+.bg-cyan-soft {
+  background: linear-gradient(180deg, var(--accent-light) 0%, white 100%);
+}
+
+/* Pattern de pontos decorativo — usar como background-image em seções */
+.bg-dots {
+  background-image: radial-gradient(circle at 1px 1px, rgba(79, 70, 229, .15) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+/* Card com gradient hover */
+.card-accent {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 0.875rem;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all .2s ease;
+}
+.card-accent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary-light), transparent 60%);
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+.card-accent:hover {
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, .08);
+  transform: translateY(-2px);
+}
+.card-accent:hover::before {
+  opacity: 1;
+}
+.card-accent > * {
   position: relative;
   z-index: 1;
 }

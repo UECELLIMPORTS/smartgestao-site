@@ -41,7 +41,7 @@ const STORIES = [
 
 export function Diferenciais() {
   return (
-    <section id="diferenciais" className="py-20 lg:py-28">
+    <section id="diferenciais" className="py-20 lg:py-28 bg-indigo-soft">
       <div className="container-x">
         {/* Section header */}
         <div className="max-w-2xl">

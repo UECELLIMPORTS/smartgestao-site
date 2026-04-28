@@ -42,7 +42,7 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section id="faq" className="py-20 lg:py-28">
+    <section id="faq" className="py-20 lg:py-28" style={{ background: 'var(--surface)' }}>
       <div className="container-x max-w-3xl">
         <div className="text-center">
           <div className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-widest mb-4"

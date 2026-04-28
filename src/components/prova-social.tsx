@@ -33,8 +33,9 @@ const STATS = [
 
 export function ProvaSocial() {
   return (
-    <section className="py-20 lg:py-28">
-      <div className="container-x">
+    <section className="py-20 lg:py-28 relative overflow-hidden"
+      style={{ background: 'linear-gradient(180deg, white 0%, var(--accent-light) 100%)' }}>
+      <div className="container-x relative">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-widest mb-4"
