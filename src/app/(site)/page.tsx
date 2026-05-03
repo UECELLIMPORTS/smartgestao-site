@@ -1,6 +1,7 @@
 import { Hero } from '@/components/hero'
 import { Sistemas } from '@/components/sistemas'
 import { Diferenciais } from '@/components/diferenciais'
+import { Mensageria } from '@/components/mensageria'
 import { ProvaSocial } from '@/components/prova-social'
 import { Pricing } from '@/components/pricing'
 import { FAQ } from '@/components/faq'
@@ -12,6 +13,7 @@ export default function HomePage() {
       <Hero />
       <Sistemas />
       <Diferenciais />
+      <Mensageria />
       <ProvaSocial />
       <Pricing />
       <FAQ />
