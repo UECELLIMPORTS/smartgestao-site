@@ -6,6 +6,7 @@ import {
   ChevronLeft, ChevronRight, X, Maximize2, Minimize2,
   TrendingUp, Target, AlertTriangle, BarChart3, Zap, Store, Users, Wrench,
   Check, ShieldCheck, Sparkles, MessageCircle, ArrowRight, Smartphone,
+  Cake, HeartHandshake, Bell, Mail, Bot,
 } from 'lucide-react'
 import { whatsappLink, BRAND, PLANOS } from '@/lib/contact'
 
@@ -17,7 +18,7 @@ function qrUrl(data: string, size = 360): string {
   return `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&margin=10&bgcolor=0D1320&color=00E5FF&data=${encodeURIComponent(data)}`
 }
 
-const TOTAL_SLIDES = 13
+const TOTAL_SLIDES = 14
 
 export function Apresentacao() {
   const [slide, setSlide] = useState(0)
@@ -132,12 +133,13 @@ function SlideContent({ index }: { index: number }) {
     case 4:  return <Slide5BreakEven />
     case 5:  return <Slide6OrigemCanal />
     case 6:  return <Slide7DiagnosticoLucro />
-    case 7:  return <Slide8DemoAoVivo />
-    case 8:  return <Slide9ProvaSocial />
-    case 9:  return <Slide10Planos />
-    case 10: return <Slide11OfertaEspecial />
-    case 11: return <Slide12ComoComecar />
-    case 12: return <Slide13Obrigado />
+    case 7:  return <Slide8RetencaoAutomatica />
+    case 8:  return <Slide8DemoAoVivo />
+    case 9:  return <Slide9ProvaSocial />
+    case 10: return <Slide10Planos />
+    case 11: return <Slide11OfertaEspecial />
+    case 12: return <Slide12ComoComecar />
+    case 13: return <Slide13Obrigado />
     default: return null
   }
 }
@@ -374,7 +376,79 @@ function Slide7DiagnosticoLucro() {
   )
 }
 
-// ── 8. DEMO AO VIVO ──────────────────────────────────────────────────────────
+// ── 7.5. Diferencial: Retenção automática (WhatsApp + e-mail) ────────────────
+function Slide8RetencaoAutomatica() {
+  const FEATURES = [
+    {
+      icon: Cake,
+      color: '#FF6B9D',
+      title: 'Aniversário vira venda',
+      desc: 'Todo dia às 8h o sistema dispara WhatsApp + e-mail com cupom de 10% pros aniversariantes. Você não precisa lembrar de ninguém.',
+    },
+    {
+      icon: HeartHandshake,
+      color: '#9B6DFF',
+      title: 'Win-back automático',
+      desc: 'Cliente sumiu há 90 dias? Mensagem de "sentimos sua falta" + cupom VOLTA15 dispara sozinha — antes que ele compre do concorrente.',
+    },
+    {
+      icon: Bell,
+      color: '#FFB800',
+      title: 'Lembretes que retêm',
+      desc: 'Aparelho pronto pra retirada, parcela vencendo, garantia expirando. Cliente avisado por WhatsApp + e-mail no momento certo.',
+    },
+    {
+      icon: Mail,
+      color: '#00FF94',
+      title: 'Pós-venda inteligente',
+      desc: 'Pesquisa de satisfação 24h depois da compra. Detrator vira oportunidade de recuperação — antes de virar review ruim.',
+    },
+  ]
+  return (
+    <SlideShell>
+      <div className="max-w-6xl w-full">
+        <p className="text-sm font-bold uppercase tracking-[0.3em] mb-6" style={{ color: '#FF6B9D' }}>
+          Diferencial #4
+        </p>
+        <h2 className="text-5xl sm:text-6xl font-bold mb-4 leading-tight">
+          Cliente que volta<br />
+          <span style={{ color: '#FF6B9D' }}>sem você levantar um dedo.</span>
+        </h2>
+        <p className="text-xl mb-10" style={{ color: '#8AA8C8' }}>
+          WhatsApp + e-mail automáticos. Funcionam 24/7, mesmo quando você está dormindo.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {FEATURES.map(f => {
+            const Icon = f.icon
+            return (
+              <div key={f.title} className="rounded-2xl border p-6"
+                style={{ background: '#0D1320', borderColor: '#1E2D45' }}>
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl border mb-4"
+                  style={{ background: `${f.color}15`, borderColor: `${f.color}40` }}>
+                  <Icon className="h-6 w-6" style={{ color: f.color }} />
+                </div>
+                <h3 className="text-xl font-bold mb-2" style={{ color: f.color }}>{f.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#E8F0FE' }}>{f.desc}</p>
+              </div>
+            )
+          })}
+        </div>
+
+        <div className="mt-6 rounded-xl border p-4 flex items-start gap-3"
+          style={{ background: 'rgba(255,107,157,.06)', borderColor: 'rgba(255,107,157,.3)' }}>
+          <Bot className="h-5 w-5 shrink-0 mt-0.5" style={{ color: '#FF6B9D' }} />
+          <p className="text-sm" style={{ color: '#E8F0FE' }}>
+            <strong style={{ color: '#FF6B9D' }}>76% das vendas</strong> da loja UÉ Cell Imports vêm de clientes recorrentes —
+            sustentado pelas mensagens automáticas. <span style={{ color: '#8AA8C8' }}>Sem essas automações, esse cliente já tinha esquecido de você.</span>
+          </p>
+        </div>
+      </div>
+    </SlideShell>
+  )
+}
+
+// ── 9. DEMO AO VIVO ──────────────────────────────────────────────────────────
 function Slide8DemoAoVivo() {
   return (
     <SlideShell>
