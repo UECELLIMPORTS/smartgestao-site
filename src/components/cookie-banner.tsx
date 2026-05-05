@@ -25,14 +25,18 @@ export function CookieBanner() {
 
   return (
     <div
-      className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-5 sm:bottom-5 sm:max-w-md z-40 rounded-2xl border bg-white p-5"
-      style={{ borderColor: 'var(--border)', boxShadow: '0 10px 40px rgba(15,23,42,.15)' }}
+      className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-5 sm:bottom-5 sm:max-w-md z-40 rounded-2xl border p-5"
+      style={{
+        background: 'var(--surface-2)',
+        borderColor: 'var(--border-2)',
+        boxShadow: '0 10px 40px rgba(0, 0, 0, .5), 0 0 0 1px rgba(34, 211, 238, .1)',
+      }}
       role="dialog"
       aria-label="Aviso de cookies"
     >
       <div className="flex items-start gap-3">
         <div className="flex h-9 w-9 items-center justify-center rounded-lg shrink-0"
-          style={{ background: 'var(--warning-light)', border: '1px solid color-mix(in srgb, var(--warning) 25%, transparent)' }}>
+          style={{ background: 'var(--warning-soft)', border: '1px solid rgba(245, 158, 11, .35)' }}>
           <Cookie className="h-5 w-5" style={{ color: 'var(--warning)' }} />
         </div>
         <div className="flex-1 min-w-0">
@@ -42,7 +46,7 @@ export function CookieBanner() {
           <p className="text-xs mb-3 leading-relaxed" style={{ color: 'var(--text-2)' }}>
             Apenas pra manter você logado e o site funcionando. Sem rastreio de publicidade.
             Detalhes na{' '}
-            <Link href="/privacidade" className="underline transition-colors hover:opacity-80" style={{ color: 'var(--primary)' }}>
+            <Link href="/privacidade" className="underline transition-colors hover:opacity-80" style={{ color: 'var(--accent)' }}>
               Política de Privacidade
             </Link>.
           </p>
@@ -56,7 +60,7 @@ export function CookieBanner() {
         </div>
         <button
           onClick={accept}
-          className="flex h-7 w-7 items-center justify-center rounded-lg hover:bg-slate-50 shrink-0"
+          className="flex h-7 w-7 items-center justify-center rounded-lg hover:bg-white/5 shrink-0 transition-colors"
           style={{ color: 'var(--muted)' }}
           aria-label="Fechar aviso"
         >

@@ -15,17 +15,23 @@ export function Pricing() {
   const planKeys: PlanKey[] = ['basico', 'pro', 'premium']
 
   return (
-    <section id="planos" className="py-20 lg:py-28" style={{ background: 'var(--surface)' }}>
+    <section id="planos" className="py-20 lg:py-28" style={{ background: 'var(--bg)' }}>
       <div className="container-x">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-widest mb-4"
-            style={{ borderColor: 'var(--border)', color: 'var(--warning)' }}>
+          <div className="chip-yellow mb-4">
             Planos da Gestão Smart
           </div>
           <h2 className="display-2" style={{ color: 'var(--text)' }}>
             Um plano pra cada estágio{' '}
-            <span style={{ color: 'var(--muted)' }}>do seu negócio.</span>
+            <span style={{
+              background: 'linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>
+              do seu negócio.
+            </span>
           </h2>
           <p className="mt-4 text-base leading-relaxed" style={{ color: 'var(--text-2)' }}>
             Comece pelo essencial e amplie quando o negócio pedir.
@@ -44,14 +50,16 @@ export function Pricing() {
             onClick={() => setAnnual(v => !v)}
             className="relative h-7 w-14 rounded-full transition-colors"
             style={{
-              background: annual ? 'var(--success)' : 'var(--border-2)',
+              background: annual ? 'var(--success)' : 'var(--surface-3)',
+              border: '1px solid var(--border-2)',
             }}
             aria-label="Alternar entre mensal e anual"
           >
             <span
-              className="absolute top-0.5 h-6 w-6 rounded-full bg-white transition-all shadow"
+              className="absolute top-0.5 h-6 w-6 rounded-full transition-all shadow"
               style={{
                 left: annual ? 'calc(100% - 1.625rem)' : '0.125rem',
+                background: 'var(--text)',
               }}
             />
           </button>
@@ -60,7 +68,7 @@ export function Pricing() {
             style={{ color: annual ? 'var(--text)' : 'var(--muted)' }}>
             Anual
             <span className="text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded"
-              style={{ background: 'var(--success-light)', color: 'var(--success)' }}>
+              style={{ background: 'var(--success-soft)', color: 'var(--success)' }}>
               -{Math.round(ANNUAL_DISCOUNT * 100)}%
             </span>
           </button>
@@ -77,16 +85,21 @@ export function Pricing() {
             return (
               <article
                 key={key}
-                className="relative rounded-2xl bg-white p-7 flex flex-col transition-all"
+                className="relative rounded-2xl p-7 flex flex-col transition-all"
                 style={{
-                  border: `1px solid ${highlighted ? 'var(--primary)' : 'var(--border)'}`,
-                  boxShadow: highlighted ? '0 0 0 4px rgba(79, 70, 229, .08), 0 12px 32px rgba(79, 70, 229, .12)' : '0 1px 3px rgba(15, 23, 42, .04)',
+                  background: highlighted
+                    ? 'linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%)'
+                    : 'var(--surface)',
+                  border: `1px solid ${highlighted ? 'rgba(34, 211, 238, .4)' : 'var(--border)'}`,
+                  boxShadow: highlighted
+                    ? '0 0 0 1px rgba(34, 211, 238, .2), 0 0 40px rgba(34, 211, 238, .15), 0 16px 48px rgba(0, 0, 0, .4)'
+                    : '0 1px 3px rgba(0, 0, 0, .2)',
                   transform: highlighted ? 'scale(1.02)' : undefined,
                 }}
               >
                 {highlighted && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest"
-                    style={{ background: 'var(--primary)', color: 'white' }}>
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest glow-cyan"
+                    style={{ background: 'var(--accent)', color: 'var(--bg)' }}>
                     <Sparkles className="h-3 w-3" /> Mais escolhido
                   </div>
                 )}
@@ -118,7 +131,7 @@ export function Pricing() {
                 {/* Badge "CRM incluso" no Premium */}
                 {key === 'premium' && (
                   <div className="mt-4 rounded-xl border px-3 py-2 text-xs"
-                    style={{ background: 'rgba(79, 70, 229, .04)', borderColor: 'rgba(79, 70, 229, .25)', color: 'var(--primary)' }}>
+                    style={{ background: 'rgba(59, 130, 246, .08)', borderColor: 'rgba(59, 130, 246, .35)', color: 'var(--primary-hover)' }}>
                     <span className="font-bold">✓ CRM Premium incluso</span>
                     <span style={{ color: 'var(--text-2)' }}> (R$ 157 valor à parte)</span>
                   </div>
@@ -141,12 +154,12 @@ export function Pricing() {
 
                 {/* Add-on CheckSmart (qualquer plano) */}
                 <div className="mt-4 rounded-xl border-2 border-dashed px-3 py-2.5 text-xs"
-                  style={{ borderColor: 'rgba(255, 184, 0, .35)', background: 'rgba(255, 184, 0, .04)' }}>
+                  style={{ borderColor: 'rgba(250, 204, 21, .35)', background: 'rgba(250, 204, 21, .05)' }}>
                   <p className="font-bold" style={{ color: 'var(--text)' }}>
                     🔧 Tem assistência técnica?
                   </p>
                   <p className="mt-0.5" style={{ color: 'var(--text-2)' }}>
-                    Adicione <a href="/checksmart" className="font-semibold underline" style={{ color: 'var(--warning)' }}>CheckSmart Premium</a> por
+                    Adicione <a href="/checksmart" className="font-semibold underline" style={{ color: 'var(--accent-yellow)' }}>CheckSmart Premium</a> por
                     <span className="font-bold" style={{ color: 'var(--text)' }}> +R$ {CHECKSMART_ADDON.monthly}/mês</span>
                     <span style={{ color: 'var(--muted)' }}> (em vez de R$ {CHECKSMART_ADDON.fullPrice} isolado · 50% off)</span>
                   </p>
@@ -155,11 +168,7 @@ export function Pricing() {
                 {/* CTA primário */}
                 <a
                   href={`${BRAND.signupUrl}?plan=${key}${annual ? '&billing=annual' : ''}`}
-                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold transition-all hover:opacity-90"
-                  style={highlighted
-                    ? { background: 'var(--primary)', color: 'white', boxShadow: '0 4px 12px rgba(79, 70, 229, .25)' }
-                    : { background: 'var(--text)', color: 'white' }
-                  }
+                  className={highlighted ? 'mt-6 btn-primary' : 'mt-6 btn-secondary'}
                 >
                   Começar grátis (7 dias) <ArrowRight className="h-4 w-4" />
                 </a>
@@ -168,8 +177,8 @@ export function Pricing() {
                 <a
                   href={whatsappLink(`Oi! Tenho interesse no plano ${plan.name} (${annual ? 'anual' : 'mensal'}). Pode me passar mais detalhes?`)}
                   target="_blank" rel="noopener noreferrer"
-                  className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-xl py-2 text-xs font-semibold border transition-colors hover:bg-slate-50"
-                  style={{ color: 'var(--muted)', borderColor: 'var(--border)' }}
+                  className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-xl py-2 text-xs font-semibold border transition-colors"
+                  style={{ color: 'var(--muted)', borderColor: 'var(--border-2)', background: 'transparent' }}
                 >
                   <MessageCircle className="h-3.5 w-3.5" /> Falar com vendas
                 </a>
@@ -180,10 +189,10 @@ export function Pricing() {
 
         {/* Disclaimer */}
         <div className="mt-10 text-center text-xs max-w-2xl mx-auto" style={{ color: 'var(--muted)' }}>
-          Não tem ERP mas precisa só do <a href="/crm" className="underline font-semibold hover:text-slate-900">CRM (Inbox WhatsApp)</a>?
+          Não tem ERP mas precisa só do <a href="/crm" className="underline font-semibold transition-colors" style={{ color: 'var(--accent)' }}>CRM (Inbox WhatsApp)</a>?
           {' '}Vendemos isolado.{' '}
           Tem assistência técnica?{' '}
-          <a href="/checksmart" className="underline font-semibold hover:text-slate-900">CheckSmart</a>{' '}
+          <a href="/checksmart" className="underline font-semibold transition-colors" style={{ color: 'var(--accent-yellow)' }}>CheckSmart</a>{' '}
           também tem plano à parte.
         </div>
       </div>

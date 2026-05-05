@@ -42,16 +42,22 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section id="faq" className="py-20 lg:py-28" style={{ background: 'var(--surface)' }}>
+    <section id="faq" className="py-20 lg:py-28" style={{ background: 'var(--bg)' }}>
       <div className="container-x max-w-3xl">
         <div className="text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-widest mb-4"
-            style={{ borderColor: 'var(--border)', color: 'var(--primary)' }}>
+          <div className="chip mb-4">
             FAQ
           </div>
           <h2 className="display-2" style={{ color: 'var(--text)' }}>
             Perguntas que todo{' '}
-            <span style={{ color: 'var(--muted)' }}>empresário faz.</span>
+            <span style={{
+              background: 'linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>
+              empresário faz.
+            </span>
           </h2>
         </div>
 
@@ -59,14 +65,18 @@ export function FAQ() {
           {FAQS.map((item, i) => {
             const isOpen = open === i
             return (
-              <div key={i} className="rounded-xl border overflow-hidden bg-white transition-colors"
-                style={{ borderColor: isOpen ? 'var(--primary)' : 'var(--border)' }}>
+              <div key={i} className="rounded-xl border overflow-hidden transition-all"
+                style={{
+                  background: isOpen ? 'var(--surface-2)' : 'var(--surface)',
+                  borderColor: isOpen ? 'rgba(34, 211, 238, .4)' : 'var(--border)',
+                  boxShadow: isOpen ? '0 0 0 1px rgba(34, 211, 238, .15), 0 8px 24px rgba(0, 0, 0, .25)' : undefined,
+                }}>
                 <button onClick={() => setOpen(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-slate-50"
+                  className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left transition-colors"
                   aria-expanded={isOpen}>
                   <span className="text-sm font-semibold" style={{ color: 'var(--text)' }}>{item.q}</span>
                   {isOpen
-                    ? <Minus className="h-4 w-4 shrink-0" style={{ color: 'var(--primary)' }} />
+                    ? <Minus className="h-4 w-4 shrink-0" style={{ color: 'var(--accent)' }} />
                     : <Plus  className="h-4 w-4 shrink-0" style={{ color: 'var(--muted)' }} />
                   }
                 </button>

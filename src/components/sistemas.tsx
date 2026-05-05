@@ -79,8 +79,7 @@ export function Sistemas() {
       <div className="container-x">
         {/* Section header */}
         <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-widest mb-4"
-            style={{ borderColor: 'var(--border)', color: 'var(--primary)' }}>
+          <div className="chip mb-4">
             Os 4 sistemas
           </div>
           <h2 className="display-2" style={{ color: 'var(--text)' }}>

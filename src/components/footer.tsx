@@ -28,10 +28,10 @@ export function Footer() {
           <div>
             <h3 className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'var(--muted)' }}>Sistemas</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/#sistemas" className="transition-colors hover:text-slate-900" style={{ color: 'var(--text-2)' }}>Gestão Smart</Link></li>
-              <li><Link href="/#sistemas" className="transition-colors hover:text-slate-900" style={{ color: 'var(--text-2)' }}>CRM</Link></li>
-              <li><Link href="/#sistemas" className="transition-colors hover:text-slate-900" style={{ color: 'var(--text-2)' }}>Meta Ads</Link></li>
-              <li><Link href="/checksmart" className="transition-colors hover:text-slate-900" style={{ color: 'var(--text-2)' }}>CheckSmart</Link></li>
+              <li><Link href="/#sistemas" className="transition-colors hover:text-white" style={{ color: 'var(--text-2)' }}>Gestão Smart</Link></li>
+              <li><Link href="/#sistemas" className="transition-colors hover:text-white" style={{ color: 'var(--text-2)' }}>CRM</Link></li>
+              <li><Link href="/#sistemas" className="transition-colors hover:text-white" style={{ color: 'var(--text-2)' }}>Meta Ads</Link></li>
+              <li><Link href="/checksmart" className="transition-colors hover:text-white" style={{ color: 'var(--text-2)' }}>CheckSmart</Link></li>
             </ul>
           </div>
 
@@ -42,14 +42,14 @@ export function Footer() {
               <li>
                 <a href={whatsappLink('Oi! Vim do site, gostaria de saber mais.')}
                   target="_blank" rel="noopener noreferrer"
-                  className="flex items-center gap-2 transition-colors hover:text-slate-900"
+                  className="flex items-center gap-2 transition-colors hover:text-white"
                   style={{ color: 'var(--text-2)' }}>
                   <span className="text-base">📲</span> WhatsApp
                 </a>
               </li>
               <li>
                 <a href={`mailto:${BRAND.email}`}
-                  className="flex items-center gap-2 transition-colors hover:text-slate-900"
+                  className="flex items-center gap-2 transition-colors hover:text-white"
                   style={{ color: 'var(--text-2)' }}>
                   <Mail className="h-4 w-4" /> {BRAND.email}
                 </a>
@@ -65,13 +65,13 @@ export function Footer() {
           style={{ borderColor: 'var(--border)', color: 'var(--muted)' }}>
           <p>© {new Date().getFullYear()} {BRAND.name}. Todos os direitos reservados.</p>
           <div className="flex items-center gap-4">
-            <Link href="/demo" className="transition-colors hover:text-slate-900">Demo</Link>
+            <Link href="/demo" className="transition-colors hover:text-white">Demo</Link>
             <span>·</span>
-            <Link href="/termos" className="transition-colors hover:text-slate-900">Termos</Link>
+            <Link href="/termos" className="transition-colors hover:text-white">Termos</Link>
             <span>·</span>
-            <Link href="/privacidade" className="transition-colors hover:text-slate-900">Privacidade</Link>
+            <Link href="/privacidade" className="transition-colors hover:text-white">Privacidade</Link>
             <span>·</span>
-            <a href={`mailto:${BRAND.email}`} className="transition-colors hover:text-slate-900">Suporte</a>
+            <a href={`mailto:${BRAND.email}`} className="transition-colors hover:text-white">Suporte</a>
           </div>
         </div>
       </div>

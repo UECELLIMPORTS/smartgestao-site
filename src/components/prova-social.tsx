@@ -34,17 +34,23 @@ const STATS = [
 export function ProvaSocial() {
   return (
     <section className="py-20 lg:py-28 relative overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, white 0%, var(--accent-light) 100%)' }}>
+      style={{ background: 'var(--surface)' }}>
       <div className="container-x relative">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-widest mb-4"
-            style={{ borderColor: 'var(--border)', color: 'var(--primary)' }}>
+          <div className="chip mb-4">
             Não é vaporware
           </div>
           <h2 className="display-2" style={{ color: 'var(--text)' }}>
             Construído numa loja de verdade.{' '}
-            <span style={{ color: 'var(--muted)' }}>Com 12 mil clientes reais.</span>
+            <span style={{
+              background: 'linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>
+              Com 12 mil clientes reais.
+            </span>
           </h2>
           <p className="mt-5 max-w-2xl mx-auto text-base leading-relaxed" style={{ color: 'var(--text-2)' }}>
             A Gestão Inteligente nasceu na rotina da <strong style={{ color: 'var(--text)' }}>UÉ Cell Imports</strong> —
@@ -58,12 +64,15 @@ export function ProvaSocial() {
           {STATS.map(s => {
             const Icon = s.icon
             return (
-              <div key={s.label} className="rounded-2xl border bg-white p-6 text-center"
-                style={{ borderColor: 'var(--border)' }}>
+              <div key={s.label} className="rounded-2xl border p-6 text-center transition-all hover:scale-[1.02]"
+                style={{
+                  background: 'var(--surface-2)',
+                  borderColor: 'var(--border)',
+                }}>
                 <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl"
                   style={{
-                    background: `color-mix(in srgb, ${s.accent} 10%, white)`,
-                    border: `1px solid color-mix(in srgb, ${s.accent} 25%, transparent)`,
+                    background: `color-mix(in srgb, ${s.accent} 15%, transparent)`,
+                    border: `1px solid color-mix(in srgb, ${s.accent} 35%, transparent)`,
                   }}>
                   <Icon className="h-6 w-6" style={{ color: s.accent }} />
                 </div>
@@ -83,10 +92,10 @@ export function ProvaSocial() {
         </div>
 
         {/* Citação institucional */}
-        <div className="mt-12 max-w-3xl mx-auto rounded-2xl border bg-white p-8 lg:p-10 relative"
-          style={{ borderColor: 'var(--border)' }}>
-          <div className="pointer-events-none absolute top-0 left-8 -translate-y-1/2 text-7xl leading-none font-bold opacity-15"
-            style={{ color: 'var(--primary)' }}>
+        <div className="mt-12 max-w-3xl mx-auto rounded-2xl border p-8 lg:p-10 relative card-glow"
+          style={{ borderColor: 'rgba(34, 211, 238, .25)' }}>
+          <div className="pointer-events-none absolute top-0 left-8 -translate-y-1/2 text-7xl leading-none font-bold opacity-30"
+            style={{ color: 'var(--accent)' }}>
             &ldquo;
           </div>
           <blockquote className="relative">
@@ -115,7 +124,7 @@ export function ProvaSocial() {
           style={{ borderColor: 'var(--border-2)' }}>
           <p className="text-xs" style={{ color: 'var(--muted)' }}>
             Em breve: depoimentos dos primeiros clientes do sistema.
-            Quer ser o primeiro a aparecer aqui? <a href="#planos" className="underline transition-colors hover:text-slate-900">Conheça os planos →</a>
+            Quer ser o primeiro a aparecer aqui? <a href="#planos" className="underline transition-colors" style={{ color: 'var(--accent)' }}>Conheça os planos →</a>
           </p>
         </div>
       </div>

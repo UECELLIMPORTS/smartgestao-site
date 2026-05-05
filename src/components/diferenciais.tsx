@@ -41,12 +41,12 @@ const STORIES = [
 
 export function Diferenciais() {
   return (
-    <section id="diferenciais" className="py-20 lg:py-28 bg-indigo-soft">
+    <section id="diferenciais" className="py-20 lg:py-28" style={{ background: 'var(--bg)' }}>
       <div className="container-x">
         {/* Section header */}
         <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-widest mb-4"
-            style={{ borderColor: 'var(--border)', color: 'var(--success)' }}>
+          <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[11px] font-bold uppercase tracking-widest mb-4"
+            style={{ background: 'var(--success-soft)', borderColor: 'rgba(16, 185, 129, .35)', color: 'var(--success)' }}>
             Diferenciais
           </div>
           <h2 className="display-2" style={{ color: 'var(--text)' }}>
