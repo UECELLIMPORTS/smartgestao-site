@@ -34,7 +34,7 @@ export function CtaFinal() {
               <a
                 href={`${BRAND.appUrl}/signup`}
                 className="inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-bold transition-opacity hover:opacity-95"
-                style={{ background: 'white', color: 'var(--primary)' }}
+                style={{ background: 'var(--surface)', color: 'var(--primary)' }}
               >
                 Começar grátis 7 dias <ArrowRight className="h-4 w-4" />
               </a>
