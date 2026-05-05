@@ -61,12 +61,123 @@ export const PLANOS = {
     features: [
       'Tudo do Pro, mais:',
       'Integração Meta Ads (campanhas, ROAS, alertas)',
-      'CRM completo',
+      'CRM Premium completo (Inbox WhatsApp + Pipeline + Status + Programadas)',
       'Atribuição por canal e CAC',
       'Suporte VIP',
     ],
     notIncluded: [],
+    bundleNote: 'CRM Premium incluso (R$ 157 valor à parte)',
   },
+}
+
+// ─── CheckSmart — produto isolado pra assistência técnica ─────────────
+export const PLANOS_CHECKSMART = {
+  basico: {
+    name:        'Básico',
+    monthly:     47,
+    description: 'Pra quem tá começando na assistência técnica',
+    features: [
+      'OS multi-aparelho com checklist',
+      'PDF de entrada com assinatura do cliente',
+      'Catálogo de marcas/modelos pronto',
+      'Cadastro de clientes',
+      'Suporte por WhatsApp',
+    ],
+    notIncluded: [
+      'Controle de peças com custo',
+      'Mensageria automática',
+    ],
+  },
+  pro: {
+    name:        'Pro',
+    monthly:     67,
+    description: 'Pra assistência que vende peças e quer controlar custos',
+    highlighted: true,
+    features: [
+      'Tudo do Básico, mais:',
+      'Controle de peças com custo + lucro',
+      'Escudo jurídico em aparelho apagado',
+      'Adendo automático no PDF',
+      'Relatórios de OS',
+      'Suporte prioritário',
+    ],
+    notIncluded: [
+      'Mensageria automática',
+    ],
+  },
+  premium: {
+    name:        'Premium',
+    monthly:     97,
+    description: 'A operação completa de assistência técnica',
+    features: [
+      'Tudo do Pro, mais:',
+      'Mensageria automática (OS pronta, garantia, win-back)',
+      'Aniversário com cupom rastreável',
+      'Email transacional',
+      'Suporte VIP',
+    ],
+    notIncluded: [],
+  },
+}
+
+// ─── CRM — produto isolado (pra quem só quer atendimento WhatsApp) ────
+export const PLANOS_CRM = {
+  basico: {
+    name:        'Básico',
+    monthly:     97,
+    description: 'Inbox WhatsApp + Pipeline kanban',
+    features: [
+      'Inbox WhatsApp com seu próprio número',
+      'Pipeline kanban (novo → ganho)',
+      'Cadastro de leads',
+      'Respostas rápidas',
+      'Suporte por WhatsApp',
+    ],
+    notIncluded: [
+      'Status WhatsApp pelo CRM',
+      'Mensagens programadas',
+      'Etiquetas avançadas',
+    ],
+  },
+  pro: {
+    name:        'Pro',
+    monthly:     137,
+    description: 'Pra quem precisa de organização e segmentação',
+    highlighted: true,
+    features: [
+      'Tudo do Básico, mais:',
+      'Etiquetas (tags) com cor',
+      'Filtros por etiqueta',
+      'Welcome message automática',
+      'Relatórios do funil',
+      'Suporte prioritário',
+    ],
+    notIncluded: [
+      'Status WhatsApp pelo CRM',
+      'Mensagens programadas em massa',
+    ],
+  },
+  premium: {
+    name:        'Premium',
+    monthly:     157,
+    description: 'O CRM completo pra escalar atendimento',
+    features: [
+      'Tudo do Pro, mais:',
+      'Status WhatsApp pelo CRM (postar + agendar)',
+      'Mensagens programadas (1 lead, etiqueta ou todos)',
+      'Mensagens com mídia (imagem, vídeo, áudio)',
+      'Comentários nos status no Inbox',
+      'Suporte VIP',
+    ],
+    notIncluded: [],
+  },
+}
+
+/** Add-on CheckSmart pra qualquer plano do SmartERP. R$ 47 fixo (50% off do isolado R$ 97). */
+export const CHECKSMART_ADDON = {
+  monthly:     47,      // preço como add-on
+  fullPrice:   97,      // CheckSmart Premium isolado (anchoring "50% off")
+  level:       'premium', // qual plano do CheckSmart o add-on entrega
 }
 
 /** Desconto aplicado quando o cliente paga 12 meses de uma vez. */

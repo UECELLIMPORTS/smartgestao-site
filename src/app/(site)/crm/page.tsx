@@ -1,48 +1,48 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, Wrench, ShieldCheck, FileSignature, Smartphone, Package, ClipboardList } from 'lucide-react'
+import { ArrowLeft, ArrowRight, MessageCircle, Inbox, Kanban, Tag, Calendar, Image, Users } from 'lucide-react'
 import { whatsappLink } from '@/lib/contact'
-import { PricingCheckSmart } from '@/components/pricing-checksmart'
+import { PricingCRM } from '@/components/pricing-crm'
 
 export const metadata: Metadata = {
-  title: 'CheckSmart — Sistema pra Assistência Técnica de Celular',
-  description: 'Ordens de serviço com checklist juridicamente blindado, PDF assinado pelo cliente e controle de peças. Pra quem leva sério.',
+  title: 'CRM — Inbox WhatsApp + Pipeline de Vendas',
+  description: 'Centralize WhatsApp, organize leads em kanban e dispare mensagens em massa do seu próprio número. Sem API oficial cara, sem chip novo.',
 }
 
 const FEATURES = [
   {
-    icon: ClipboardList,
-    title: 'OS multi-aparelho',
-    desc: 'Cliente trouxe 3 celulares? 1 ordem de serviço, 3 aparelhos, cada um com checklist próprio.',
+    icon: Inbox,
+    title: 'Inbox WhatsApp unificado',
+    desc: 'Todas as conversas dos clientes num lugar só. Sai do seu próprio número de WhatsApp — sem chip novo, sem API oficial cara.',
   },
   {
-    icon: ShieldCheck,
-    title: 'Escudo jurídico em aparelho apagado',
-    desc: 'Aparelho que não liga? Sistema bloqueia checklist com "Não Testado" e gera adendo automático no PDF — você não atesta o que não pode verificar.',
+    icon: Kanban,
+    title: 'Pipeline kanban',
+    desc: 'Arraste leads entre estágios (Novo → Qualificado → Proposta → Fechado). Visão clara do funil em tempo real.',
   },
   {
-    icon: FileSignature,
-    title: 'PDF com assinatura do cliente',
-    desc: 'Geração automática do termo de entrada com checklist completo, condição física do aparelho e assinatura digital do cliente.',
+    icon: Tag,
+    title: 'Etiquetas pra segmentar',
+    desc: 'Crie etiquetas (VIP, Cliente Recorrente, Aguardando Proposta) e filtre conversas/leads pra atender em ondas.',
   },
   {
-    icon: Package,
-    title: 'Controle de peças com custo',
-    desc: 'Cada peça lançada na OS tem custo, preço de venda, fornecedor. Lucro calculado automaticamente.',
+    icon: Calendar,
+    title: 'Mensagens programadas',
+    desc: 'Agende mensagens pra um lead, pra todos com uma etiqueta, ou pra todos os contatos. Texto, imagem, vídeo, áudio ou PDF.',
   },
   {
-    icon: Smartphone,
-    title: 'Catálogo de marcas/modelos pronto',
-    desc: 'Seed com as principais marcas de celular do Brasil. Você adiciona o aparelho em segundos.',
+    icon: Image,
+    title: 'Status WhatsApp pelo CRM',
+    desc: 'Posta status (texto, imagem ou vídeo) direto do CRM, com agendamento. Comentários nos status caem no Inbox com a referência do status original.',
   },
   {
-    icon: Wrench,
-    title: 'Sincroniza com Gestão Smart',
-    desc: 'OS finalizada vira receita automaticamente no Financeiro do Gestão Smart, com canal de venda e cliente unificados.',
+    icon: Users,
+    title: 'Welcome message automática',
+    desc: 'Resposta automática pra leads novos pedindo pra te salvarem na agenda — só assim eles recebem seus status.',
   },
 ]
 
-export default function CheckSmartPage() {
+export default function CRMPage() {
   return (
     <>
       {/* Hero */}
@@ -57,35 +57,36 @@ export default function CheckSmartPage() {
 
           <div className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-semibold mb-6"
             style={{ background: 'rgba(255,184,0,.06)', borderColor: 'rgba(255,184,0,.4)', color: '#FFB800' }}>
-            <Wrench className="h-3.5 w-3.5" /> Sistema específico pra assistência técnica
+            <MessageCircle className="h-3.5 w-3.5" /> CRM com WhatsApp embutido
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight max-w-4xl">
-            CheckSmart.<br />
+            CRM.<br />
             <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(135deg, #FFB800, #FF8C00)' }}>
-              A OS digital que blinda você.
+              Atendimento que vira venda.
             </span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed" style={{ color: '#8AA8C8' }}>
-            Pra assistência técnica de celular que cansou de cliente reclamando que o aparelho saiu pior do que entrou.
-            Checklist com escudo jurídico, PDF com assinatura e integração com seu ERP.
+            Inbox unificado de WhatsApp, pipeline kanban, mensagens programadas
+            por etiqueta e status pelo seu próprio número. Sai do seu chip
+            atual, sem API oficial cara.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <a
-              href={whatsappLink('Oi! Tenho interesse no CheckSmart pra minha assistência técnica.')}
+              href={whatsappLink('Oi! Tenho interesse no CRM. Pode me passar mais detalhes?')}
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-bold transition-opacity hover:opacity-90"
               style={{ background: 'linear-gradient(135deg, #FFB800, #FF8C00)', color: '#080C14' }}
             >
               Falar com vendas <ArrowRight className="h-4 w-4" />
             </a>
-            <Link href="/demo"
+            <Link href="#planos"
               className="inline-flex items-center justify-center gap-2 rounded-xl border px-6 py-3.5 text-sm font-bold transition-colors hover:bg-white/5"
               style={{ borderColor: '#1E2D45', color: '#E8F0FE' }}
             >
-              Agendar demonstração
+              Ver planos
             </Link>
           </div>
         </div>
@@ -96,8 +97,8 @@ export default function CheckSmartPage() {
         <div className="container-x">
           <div className="max-w-2xl">
             <h2 className="text-3xl sm:text-4xl font-bold leading-tight">
-              Por que assistências técnicas<br />
-              <span style={{ color: '#8AA8C8' }}>escolhem o CheckSmart.</span>
+              O que você ganha<br />
+              <span style={{ color: '#8AA8C8' }}>com o CRM Gestão Smart.</span>
             </h2>
           </div>
 
@@ -121,7 +122,7 @@ export default function CheckSmartPage() {
       </section>
 
       {/* Pricing */}
-      <PricingCheckSmart />
+      <PricingCRM />
 
       {/* CTA final */}
       <section className="py-20 lg:py-24">
@@ -129,18 +130,18 @@ export default function CheckSmartPage() {
           <div className="rounded-3xl border p-10 lg:p-14 text-center"
             style={{ background: '#0D1320', borderColor: 'rgba(255,184,0,.4)' }}>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
-              Pronto pra digitalizar sua assistência técnica?
+              Pronto pra centralizar seu atendimento?
             </h2>
             <p className="mt-4 max-w-xl mx-auto text-base" style={{ color: '#8AA8C8' }}>
-              Falamos com você em até 1 hora pra entender seu volume de OSs e propor o plano certo.
+              Falamos com você em até 1 hora pra entender seu volume de conversas e propor o plano certo.
             </p>
             <a
-              href={whatsappLink('Oi! Quero contratar o CheckSmart pra minha assistência. Pode me passar valores?')}
+              href={whatsappLink('Oi! Quero contratar o CRM. Pode me passar valores?')}
               target="_blank" rel="noopener noreferrer"
               className="mt-8 inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 text-sm font-bold transition-opacity hover:opacity-90"
               style={{ background: 'linear-gradient(135deg, #FFB800, #FF8C00)', color: '#080C14' }}
             >
-              Quero contratar o CheckSmart <ArrowRight className="h-4 w-4" />
+              Quero contratar o CRM <ArrowRight className="h-4 w-4" />
             </a>
           </div>
         </div>

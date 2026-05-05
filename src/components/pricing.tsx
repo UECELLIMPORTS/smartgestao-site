@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Check, X, Sparkles, ArrowRight, MessageCircle } from 'lucide-react'
-import { whatsappLink, PLANOS, ANNUAL_DISCOUNT, annualPricing, BRAND } from '@/lib/contact'
+import { whatsappLink, PLANOS, ANNUAL_DISCOUNT, annualPricing, BRAND, CHECKSMART_ADDON } from '@/lib/contact'
 
 const BRL = (v: number) =>
   new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0, maximumFractionDigits: 0 })
@@ -115,6 +115,15 @@ export function Pricing() {
                   </p>
                 )}
 
+                {/* Badge "CRM incluso" no Premium */}
+                {key === 'premium' && (
+                  <div className="mt-4 rounded-xl border px-3 py-2 text-xs"
+                    style={{ background: 'rgba(79, 70, 229, .04)', borderColor: 'rgba(79, 70, 229, .25)', color: 'var(--primary)' }}>
+                    <span className="font-bold">✓ CRM Premium incluso</span>
+                    <span style={{ color: 'var(--text-2)' }}> (R$ 157 valor à parte)</span>
+                  </div>
+                )}
+
                 <ul className="mt-6 space-y-2 flex-1">
                   {plan.features.map(f => (
                     <li key={f} className="flex items-start gap-2 text-sm" style={{ color: 'var(--text)' }}>
@@ -129,6 +138,19 @@ export function Pricing() {
                     </li>
                   ))}
                 </ul>
+
+                {/* Add-on CheckSmart (qualquer plano) */}
+                <div className="mt-4 rounded-xl border-2 border-dashed px-3 py-2.5 text-xs"
+                  style={{ borderColor: 'rgba(255, 184, 0, .35)', background: 'rgba(255, 184, 0, .04)' }}>
+                  <p className="font-bold" style={{ color: 'var(--text)' }}>
+                    🔧 Tem assistência técnica?
+                  </p>
+                  <p className="mt-0.5" style={{ color: 'var(--text-2)' }}>
+                    Adicione <a href="/checksmart" className="font-semibold underline" style={{ color: 'var(--warning)' }}>CheckSmart Premium</a> por
+                    <span className="font-bold" style={{ color: 'var(--text)' }}> +R$ {CHECKSMART_ADDON.monthly}/mês</span>
+                    <span style={{ color: 'var(--muted)' }}> (em vez de R$ {CHECKSMART_ADDON.fullPrice} isolado · 50% off)</span>
+                  </p>
+                </div>
 
                 {/* CTA primário */}
                 <a
@@ -158,8 +180,11 @@ export function Pricing() {
 
         {/* Disclaimer */}
         <div className="mt-10 text-center text-xs max-w-2xl mx-auto" style={{ color: 'var(--muted)' }}>
-          O CheckSmart (sistema pra assistência técnica) é vendido em plano à parte.{' '}
-          <a href="/checksmart" className="underline transition-colors hover:text-slate-900">Conheça aqui →</a>
+          Não tem ERP mas precisa só do <a href="/crm" className="underline font-semibold hover:text-slate-900">CRM (Inbox WhatsApp)</a>?
+          {' '}Vendemos isolado.{' '}
+          Tem assistência técnica?{' '}
+          <a href="/checksmart" className="underline font-semibold hover:text-slate-900">CheckSmart</a>{' '}
+          também tem plano à parte.
         </div>
       </div>
     </section>
