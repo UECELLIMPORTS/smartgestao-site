@@ -9,20 +9,45 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
+const SITE_TITLE = 'Gestão Smart — ERP, CRM, Checklist e Meta Ads em uma plataforma com IA'
+const SITE_DESCRIPTION = 'Do caos à clareza. ERP completo, CRM com WhatsApp, Checklist de assistência técnica e Meta Ads — tudo 100% em nuvem com IA integrada. Sem fidelidade, 7 dias grátis.'
+
 export const metadata: Metadata = {
-  title:       `${BRAND.name} — ${BRAND.tagline}`,
-  description: 'ERP completo pra lojas que querem vender mais e gastar menos tempo. Frente de caixa, estoque, financeiro, CRM e Meta Ads em um só painel.',
+  title:       SITE_TITLE,
+  description: SITE_DESCRIPTION,
   metadataBase: new URL('https://gestaosmarterp.online'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title:       `${BRAND.name} — ${BRAND.tagline}`,
-    description: 'Sistema de gestão pra lojas que querem crescer com dados.',
+    title:       SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url:         'https://gestaosmarterp.online',
+    siteName:    'Gestão Smart',
     type:        'website',
     locale:      'pt_BR',
+    images: [
+      {
+        url:    '/images/og-image.jpg',
+        width:  1200,
+        height: 630,
+        alt:    'Gestão Smart — ERP, CRM, Checklist e Meta Ads com IA integrada',
+      },
+    ],
+  },
+  twitter: {
+    card:        'summary_large_image',
+    title:       SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images:      ['/images/og-image.jpg'],
+  },
+  icons: {
+    icon: '/favicon.ico',
   },
 }
 
 export const viewport = {
-  themeColor:   '#FFFFFF',
+  themeColor:   '#050B17',
   width:        'device-width',
   initialScale: 1,
 }
