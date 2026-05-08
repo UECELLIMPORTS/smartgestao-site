@@ -28,6 +28,7 @@ export const PLANOS = {
       'Controle de Estoque',
       'Financeiro básico',
       'Cadastro de Clientes',
+      '🎙️ Comando de Voz (vender, estoque, clientes — sem digitar)',
       'Suporte por WhatsApp',
     ],
     notIncluded: [
@@ -43,6 +44,7 @@ export const PLANOS = {
     highlighted: true,
     features: [
       'Tudo do Básico, mais:',
+      '🎙️ Comando de Voz com NF-e/NFC-e (emite nota só falando)',
       'Dashboards completos',
       'Relatórios avançados (Break-even, Origem×Canal, etc.)',
       'Análise de Canais de Venda',

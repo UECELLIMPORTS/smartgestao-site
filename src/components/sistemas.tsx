@@ -9,6 +9,7 @@ const SISTEMAS = [
     accent:      'var(--primary)',
     description: 'O ERP completo: frente de caixa, estoque, financeiro, dashboards e relatórios avançados em tempo real.',
     features: [
+      '🎙️ Comando de Voz: venda, estoque, cliente e NF-e só falando',
       'Frente de Caixa (POS)',
       'Estoque com snapshot de custo',
       'Financeiro consolidado (ERP + OS)',

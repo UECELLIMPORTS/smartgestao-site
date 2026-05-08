@@ -220,6 +220,46 @@ export default function CRMPage() {
       {/* Pricing */}
       <PricingCRM />
 
+      {/* Cross-sell — Voice Entry no Gestão Smart */}
+      <section className="py-16 lg:py-20" style={{ background: 'var(--surface)' }}>
+        <div className="container-x">
+          <div className="max-w-4xl mx-auto rounded-3xl border p-8 lg:p-10 relative overflow-hidden"
+            style={{ borderColor: 'rgba(168,85,247,0.4)', background: 'linear-gradient(135deg, rgba(168,85,247,0.08) 0%, rgba(34,211,238,0.05) 100%)' }}>
+            <div className="flex flex-col lg:flex-row items-start gap-6">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl shrink-0"
+                style={{ background: 'rgba(168,85,247,0.2)' }}>
+                <span className="text-3xl">🎙️</span>
+              </div>
+              <div className="flex-1">
+                <div className="inline-flex items-center gap-2 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest mb-3"
+                  style={{ background: 'rgba(168,85,247,0.2)', color: '#C4B5FD' }}>
+                  Bônus do Pacote Premium
+                </div>
+                <h3 className="text-2xl font-bold mb-3" style={{ color: 'var(--text)' }}>
+                  Tem loja física? Atende e vende ao mesmo tempo, só falando.
+                </h3>
+                <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--text-2)' }}>
+                  Quem assina o <strong style={{ color: 'var(--text)' }}>Premium do Gestão Smart</strong> (que já inclui o CRM)
+                  ganha o <strong style={{ color: '#C4B5FD' }}>Comando de Voz</strong>: lança venda no caixa,
+                  dá entrada no estoque, cadastra cliente e até <strong style={{ color: 'var(--text)' }}>emite NF-e/NFC-e </strong>
+                  só falando — em português, no celular.
+                </p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs mb-5" style={{ color: 'var(--text-2)' }}>
+                  <li className="flex items-start gap-1.5"><span style={{ color: '#C4B5FD' }}>›</span> "Vender capa do iPhone 15 por 80 no Pix"</li>
+                  <li className="flex items-start gap-1.5"><span style={{ color: '#C4B5FD' }}>›</span> "Entrou 10 películas com custo 15"</li>
+                  <li className="flex items-start gap-1.5"><span style={{ color: '#C4B5FD' }}>›</span> "Cadastra Maria 31 99999-9999"</li>
+                  <li className="flex items-start gap-1.5"><span style={{ color: '#C4B5FD' }}>›</span> "Emite NFC-e da última venda"</li>
+                </ul>
+                <a href="/#planos" className="inline-flex items-center gap-1.5 text-sm font-bold"
+                  style={{ color: '#C4B5FD' }}>
+                  Ver Premium com Voz + CRM <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA final */}
       <section className="py-20 lg:py-24" style={{ background: 'var(--bg)' }}>
         <div className="container-x">
